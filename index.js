@@ -15,7 +15,9 @@ app.get('/', (req, res) => {
 app.get('/home', (req, res) => {
     res.render('home', { title: 'مرحبا بك', message: 'هذه صفحة EJS بسيطة!' });
 });
-
+app.get('/home', (req, res) => {
+    res.sendFile('./ds.html');
+});
 
 // تشغيل الخادم
 app.listen(port, () => {
