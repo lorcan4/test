@@ -5,12 +5,13 @@ const port = 3000;
 
 // ضبط EJS كمحرك القوالب
 app.set('view engine', 'ejs');
-app.set('views', __dirname);
+app.set('views', __dirname); // تأكد أن home.ejs في نفس المجلد
 
 app.get('/', (req, res) => {
     res.send('Welcome');
 });
-// الصفحة الرئيسية
+
+// الصفحة التي تحتوي على القالب EJS
 app.get('/home', (req, res) => {
     res.render('home', { title: 'مرحبا بك', message: 'هذه صفحة EJS بسيطة!' });
 });
@@ -20,4 +21,4 @@ app.listen(port, () => {
     console.log(`الخادم يعمل على http://localhost:${port}`);
 });
 
-module.exports = app; // ✅ إضافة هذا إذا كنت تستخدم Serverless Functions في Vercel
+module.exports = app;
