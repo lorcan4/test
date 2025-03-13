@@ -7,9 +7,11 @@ const port = 3000;
 app.set('view engine', 'ejs');
 app.set('views', __dirname);
 
-
-// الصفحة الرئيسية
 app.get('/', (req, res) => {
+    res.send('Welcome');
+});
+// الصفحة الرئيسية
+app.get('/home', (req, res) => {
     res.render('./home', { title: 'مرحبا بك', message: 'هذه صفحة EJS بسيطة!' });
 });
 
