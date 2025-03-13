@@ -15,9 +15,11 @@ app.get('/', (req, res) => {
 app.get('/home', (req, res) => {
     res.render('home', { title: 'مرحبا بك', message: 'هذه صفحة EJS بسيطة!' });
 });
-app.get('/ds', (req, res) => {
-    res.sendFile('./ds.html');
-});
+// صفحة HTML ثابتة
+app.get('/about', (req, res) => {
+    const filePath = path.join(__dirname, 'ds.html'); // التأكد من أن المسار مطلق
+    res.sendFile(filePath);
+});;
 
 // تشغيل الخادم
 app.listen(port, () => {
