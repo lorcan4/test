@@ -6,6 +6,7 @@ const port = 3000;
 // ضبط EJS كمحرك القوالب
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views')); // الآن استخدام مجلد `views`
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
     res.send('Welcome');
