@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 });
 // الصفحة الرئيسية
 app.get('/home', (req, res) => {
-    res.render('./home', { title: 'مرحبا بك', message: 'هذه صفحة EJS بسيطة!' });
+    res.render('home', { title: 'مرحبا بك', message: 'هذه صفحة EJS بسيطة!' });
 });
 
 // تشغيل الخادم
