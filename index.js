@@ -5,7 +5,8 @@ const port = 3000;
 
 // ضبط EJS كمحرك القوالب
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, './')); // ✅ التأكد أن المجلد views موجود
+app.set('views', __dirname);
+
 
 // الصفحة الرئيسية
 app.get('/', (req, res) => {
