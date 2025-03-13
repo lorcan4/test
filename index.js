@@ -17,7 +17,7 @@ app.get('/home', (req, res) => {
 });
 // صفحة HTML ثابتة
 app.get('/about', (req, res) => {
-    const filePath = path.join(__dirname, 'ds.html'); // التأكد من أن المسار مطلق
+    const filePath = path.join(__dirname,'public', 'ds.html'); // التأكد من أن المسار مطلق
     res.sendFile(filePath);
 });;
 
