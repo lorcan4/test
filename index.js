@@ -1,11 +1,15 @@
-const express = require("express");
-
+const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const port = 3000;
 
-app.get("/", (req, res) => {
-    res.send("✅ Server is running on Vercel!");
+// ضبط EJS كمحرك القوالب
+app.set('view engine', 'ejs');
+
+// الصفحة الرئيسية
+app.get('/', (req, res) => {
+    res.render('home', { title: 'مرحبا بك', message: 'هذه صفحة EJS بسيطة!' });
 });
 
-// لا تستخدم app.listen() عند النشر على Vercel
-module.exports = app;
+app.listen(port, () => {
+    console.log(`الخادم يعمل على http://localhost:${port}`);
+});
