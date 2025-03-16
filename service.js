@@ -20,6 +20,9 @@ const FILE = path.join(__dirname,'host','home.ejs');
 app.get('/', (req, res) => {
   res.render(FILE); // Render the contact form
 });
+app.get('/test', (req, res) => {
+  res.send("test"); // Render the contact form
+});
 app.post('/send', async (req, res) => {
   const { name, email, message } = req.body;
 
