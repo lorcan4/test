@@ -1,28 +1,29 @@
-
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
- require('dotenv').config({ path: path.resolve(__dirname,'./.env.project1')}); 
- 
+require('dotenv').config({ path: path.resolve(__dirname, './.env.project1') });
+
 const app = express();
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'host')));
- 
+
 // Set view engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'host'));
 
 // Routes
-const FILE = path.join(__dirname,'host','home.ejs');
+const FILE = path.join(__dirname, 'host', 'home.ejs');
 app.get('/', (req, res) => {
   res.render(FILE); // Render the contact form
 });
+
 app.get('/test', (req, res) => {
-  res.send("test"); // Render the contact form
+  res.send("test");
 });
+
 app.post('/send', async (req, res) => {
   const { name, email, message } = req.body;
 
@@ -53,8 +54,5 @@ app.post('/send', async (req, res) => {
   }
 });
 
-// Start the server
-const PORT = process.env.PORT || 4400;
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+// Export the app for Vercel
+module.exports = app;
