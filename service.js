@@ -54,5 +54,5 @@ app.post('/send', async (req, res) => {
   }
 });
 
-// Export the app for Vercel
+// Export app for Vercel serverless function
 module.exports = app;
