@@ -9,14 +9,14 @@ const app = express();
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'host')));
  
 // Set view engine
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'host'));
 
 // Routes
-const FILE = path.join(__dirname,'home.ejs');
+const FILE = path.join(__dirname,'host','home.ejs');
 app.get('/', (req, res) => {
   res.render(FILE); // Render the contact form
 });
